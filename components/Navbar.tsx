@@ -20,8 +20,10 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
+  const isBlackBgPage = location.pathname === '/menu' || location.pathname === '/gallery';
+
   const navClass = `fixed w-full z-50 transition-all duration-300 ${
-    scrolled ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+    scrolled || isBlackBgPage ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
   }`;
 
   const linkClass = (path: string) => `font-sans text-sm tracking-widest uppercase hover:text-gold-400 transition-colors ${
